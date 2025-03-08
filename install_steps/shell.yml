@@ -1,6 +1,11 @@
 ---
 - clean: ['~']
 
+- shell:
+    - command: cat bash/root.bashrc | sudo tee /root/.bashrc
+      description: Root's bashrc
+      stderr: true
+
 - link:
     ~/.bashrc:
       path: bash/bashrc.sh
