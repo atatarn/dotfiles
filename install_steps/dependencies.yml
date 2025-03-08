@@ -11,7 +11,7 @@
         sudo apt-get install -y --no-install-recommends \
           ninja-build gettext cmake curl build-essential \
           curl wget jq ripgrep zsh lua5.4 liblua5.4-dev fd-find \
-          unzip zip tar
+          unzip zip tar uv
       description: APT packages
       stderr: true
     - command: |
