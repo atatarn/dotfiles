@@ -9,6 +9,7 @@
       stderr: true
     - command: |
         sudo apt-get install -y --no-install-recommends \
+          ninja-build gettext cmake curl build-essential \
           curl wget jq ripgrep zsh lua5.4 liblua5.4-dev fd-find \
           unzip zip tar
       description: APT packages
@@ -16,3 +17,4 @@
     - command: |
         export FZF_SRC=https://github.com/junegunn/fzf/releases/download/v0.60.3/fzf-0.60.3-linux_amd64.tar.gz && \
         curl -sL $FZF_SRC | sudo tar xz -C /usr/local/bin --wildcards "fzf"
+      description: fzf

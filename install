@@ -35,4 +35,5 @@ printf "\n"
 dotbot install_steps/essentials.yml
 dotbot install_steps/dependencies.yml
 dotbot install_steps/shell.yml
+dotbot install_steps/neovim.yml
 

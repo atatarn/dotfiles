@@ -2,11 +2,15 @@
 
 - clean: ['~']
 
+- create:
+    ~/.ssh:
+      mode: 0700
+    ~/.ssh/config.d:
+      mode: 0700
+
 - shell:
-    - command: |
-        mkdir -p ~/.ssh/config.d && \
-        find ~/.ssh -type d | xargs chmod 0700 &&
-        cat ssh/config > ~/.ssh/config
+    - command: cat ssh/config > ~/.ssh/config
+      description: Place default .ssh/config
 
 - link:
     ~/.gitconfig:

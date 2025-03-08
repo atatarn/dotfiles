@@ -1,0 +1,22 @@
+---
+
+- shell:
+    - command: |
+        set -eo pipefail;
+        NEOVIM_RELEASE=0.10.4;
+        rm -rf /tmp/neovim;
+        mkdir /tmp/neovim;
+        curl -L "https://github.com/neovim/neovim/archive/refs/tags/v${NEOVIM_RELEASE}.tar.gz" | tar zx -C /tmp/neovim;
+        cd /tmp/neovim/neovim-${NEOVIM_RELEASE};
+        make CMAKE_BUILD_TYPE=RelWithDebInfo;
+        cd  /tmp/neovim/neovim-${NEOVIM_RELEASE}/build;
+        cpack -G DEB;
+        sudo dpkg -i /tmp/neovim/neovim-${NEOVIM_RELEASE}/build/nvim-linux-$(uname -m).deb;
+      description: Install neovim
+      stdout: true
+
+- link:
+    ~/.config/nvim:
+      path: nvim
+      create: true
+      force: true
