@@ -13,7 +13,7 @@
         cpack -G DEB;
         sudo dpkg -i /tmp/neovim/neovim-${NEOVIM_RELEASE}/build/nvim-linux-$(uname -m).deb;
       description: Install neovim
-      stdout: true
+      stderr: true
 
 - link:
     ~/.config/nvim:

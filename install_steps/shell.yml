@@ -9,11 +9,11 @@
       description: Oh My Posh
       stderr: true
     - command: |
-        export ZINIT_HOME=$HOME/.local/share/zinit/zinit.git && \
-        rm -rf $ZINIT_HOME || true && \
-        mkdir -p $HOME/.local/share/zinit/zinit.git && \
-        git clone --branch main https://github.com/zdharma-continuum/zinit.git \
-        $HOME/.local/share/zinit/zinit.git
+        set -eo pipefail;
+        ZINIT_HOME=$HOME/.local/share/zinit/zinit.git;
+        rm -rf $ZINIT_HOME;
+        mkdir -p $ZINIT_HOME;
+        git clone --quiet --branch main https://github.com/zdharma-continuum/zinit.git $ZINIT_HOME;
       description: Get ZInit
       stderr: true
 
