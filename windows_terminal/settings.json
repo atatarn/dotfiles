@@ -1,0 +1,446 @@
+{
+    "$help": "https://aka.ms/terminal-documentation",
+    "$schema": "https://aka.ms/terminal-profiles-schema-preview",
+    "actions": 
+    [
+        {
+            "command": 
+            {
+                "action": "newTab",
+                "index": 8
+            },
+            "id": "User.newTab.B7F682DF"
+        },
+        {
+            "command": 
+            {
+                "action": "switchToTab",
+                "index": 2
+            },
+            "id": "User.switchToTab.87C324ED"
+        },
+        {
+            "command": 
+            {
+                "action": "switchToTab",
+                "index": 5
+            },
+            "id": "User.switchToTab.75247157"
+        },
+        {
+            "command": "duplicateTab",
+            "id": "User.duplicateTab"
+        },
+        {
+            "command": "paste",
+            "id": "User.paste"
+        },
+        {
+            "command": 
+            {
+                "action": "newTab"
+            },
+            "id": "User.newTab.5DEADB41"
+        },
+        {
+            "command": 
+            {
+                "action": "sendInput",
+                "input": "sudo -i\n"
+            },
+            "id": "User.sendInput.1ADC5BF4",
+            "name": "sudo"
+        },
+        {
+            "command": 
+            {
+                "action": "switchToTab",
+                "index": 4
+            },
+            "id": "User.switchToTab.F747588A"
+        },
+        {
+            "command": 
+            {
+                "action": "newTab",
+                "index": 2
+            },
+            "id": "User.newTab.CCE909E3"
+        },
+        {
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "nextInOrder"
+            },
+            "id": "User.moveFocus.D7681B66"
+        },
+        {
+            "command": 
+            {
+                "action": "switchToTab",
+                "index": 3
+            },
+            "id": "User.switchToTab.6CD791B"
+        },
+        {
+            "command": 
+            {
+                "action": "newTab",
+                "index": 1
+            },
+            "id": "User.newTab.1FA5EB5"
+        },
+        {
+            "command": 
+            {
+                "action": "newTab",
+                "index": 4
+            },
+            "id": "User.newTab.89E6CA61"
+        },
+        {
+            "command": 
+            {
+                "action": "copy",
+                "singleLine": false
+            },
+            "id": "User.copy.644BA8F2"
+        },
+        {
+            "command": 
+            {
+                "action": "splitPane",
+                "split": "down",
+                "splitMode": "duplicate"
+            },
+            "id": "User.splitPane.10B260D2"
+        },
+        {
+            "command": 
+            {
+                "action": "newTab",
+                "index": 3
+            },
+            "id": "User.newTab.F4C304FB"
+        },
+        {
+            "command": 
+            {
+                "action": "splitPane",
+                "split": "right",
+                "splitMode": "duplicate"
+            },
+            "id": "User.splitPane.FEF0D40B"
+        },
+        {
+            "command": 
+            {
+                "action": "switchToTab",
+                "index": 6
+            },
+            "id": "User.switchToTab.787314EB"
+        },
+        {
+            "command": 
+            {
+                "action": "newTab",
+                "index": 7
+            },
+            "id": "User.newTab.E694A910"
+        },
+        {
+            "command": "find",
+            "id": "User.find"
+        },
+        {
+            "command": 
+            {
+                "action": "newTab",
+                "index": 0
+            },
+            "id": "User.newTab.7975BEED"
+        },
+        {
+            "command": 
+            {
+                "action": "newTab",
+                "index": 5
+            },
+            "id": "User.newTab.663EF760"
+        },
+        {
+            "command": 
+            {
+                "action": "switchToTab",
+                "index": 7
+            },
+            "id": "User.switchToTab.D7681B66"
+        },
+        {
+            "command": 
+            {
+                "action": "switchToTab",
+                "index": 4294967295
+            },
+            "id": "User.switchToTab.9CB19EED"
+        },
+        {
+            "command": 
+            {
+                "action": "newTab",
+                "index": 6
+            },
+            "id": "User.newTab.B1B78DBA"
+        },
+        {
+            "command": 
+            {
+                "action": "switchToTab",
+                "index": 0
+            },
+            "id": "User.switchToTab.D3F0B923"
+        },
+        {
+            "command": 
+            {
+                "action": "switchToTab",
+                "index": 1
+            },
+            "id": "User.switchToTab.2A0DA8E0"
+        },
+        {
+            "command": 
+            {
+                "action": "closeTab"
+            },
+            "id": "User.closeTab.0"
+        }
+    ],
+    "alwaysShowNotificationIcon": false,
+    "copyFormatting": "none",
+    "copyOnSelect": true,
+    "defaultProfile": "{51855cb2-8cce-5362-8f54-464b92b32386}",
+    "keybindings": 
+    [
+        {
+            "id": "User.duplicateTab",
+            "keys": "ctrl+shift+t"
+        },
+        {
+            "id": "User.sendInput.1ADC5BF4",
+            "keys": "alt+s"
+        },
+        {
+            "id": "User.paste",
+            "keys": "ctrl+v"
+        },
+        {
+            "id": "User.find",
+            "keys": "ctrl+shift+f"
+        },
+        {
+            "id": "User.copy.644BA8F2",
+            "keys": "ctrl+c"
+        },
+        {
+            "id": "User.moveFocus.D7681B66",
+            "keys": "ctrl+tab"
+        },
+        {
+            "id": "User.switchToTab.F747588A",
+            "keys": "alt+5"
+        },
+        {
+            "id": "User.splitPane.FEF0D40B",
+            "keys": "ctrl+shift+plus"
+        },
+        {
+            "id": "User.switchToTab.75247157",
+            "keys": "alt+6"
+        },
+        {
+            "id": "User.switchToTab.87C324ED",
+            "keys": "alt+3"
+        },
+        {
+            "id": "User.switchToTab.787314EB",
+            "keys": "alt+7"
+        },
+        {
+            "id": "User.newTab.5DEADB41",
+            "keys": "ctrl+shift+n"
+        },
+        {
+            "id": "User.splitPane.10B260D2",
+            "keys": "ctrl+shift+minus"
+        },
+        {
+            "id": "User.switchToTab.D7681B66",
+            "keys": "alt+8"
+        },
+        {
+            "id": "User.switchToTab.9CB19EED",
+            "keys": "alt+9"
+        },
+        {
+            "id": "User.switchToTab.D3F0B923",
+            "keys": "alt+1"
+        },
+        {
+            "id": "User.closeTab.0",
+            "keys": "ctrl+f4"
+        },
+        {
+            "id": "User.switchToTab.2A0DA8E0",
+            "keys": "alt+2"
+        },
+        {
+            "id": "User.switchToTab.6CD791B",
+            "keys": "alt+4"
+        }
+    ],
+    "launchMode": "maximized",
+    "newTabMenu": 
+    [
+        {
+            "type": "remainingProfiles"
+        }
+    ],
+    "profiles": 
+    {
+        "defaults": 
+        {
+            "cursorShape": "filledBox",
+            "experimental.retroTerminalEffect": false,
+            "useAcrylic": false
+        },
+        "list": 
+        [
+            {
+                "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+                "hidden": false,
+                "name": "Windows PowerShell"
+            },
+            {
+                "commandline": "%SystemRoot%\\System32\\cmd.exe",
+                "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+                "hidden": false,
+                "name": "Command Prompt"
+            },
+            {
+                "colorScheme": "Putty legacy",
+                "font": 
+                {
+                    "face": "JetBrainsMono Nerd Font Mono"
+                },
+                "guid": "{51855cb2-8cce-5362-8f54-464b92b32386}",
+                "hidden": false,
+                "name": "Ubuntu",
+                "source": "CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc"
+            },
+        ]
+    },
+    "schemes": 
+    [
+        {
+            "background": "#303446",
+            "black": "#51576D",
+            "blue": "#8CAAEE",
+            "brightBlack": "#626880",
+            "brightBlue": "#8CAAEE",
+            "brightCyan": "#81C8BE",
+            "brightGreen": "#A6D189",
+            "brightPurple": "#F4B8E4",
+            "brightRed": "#E78284",
+            "brightWhite": "#A5ADCE",
+            "brightYellow": "#E5C890",
+            "cursorColor": "#F2D5CF",
+            "cyan": "#81C8BE",
+            "foreground": "#C6D0F5",
+            "green": "#A6D189",
+            "name": "Catppuccin Frappe",
+            "purple": "#F4B8E4",
+            "red": "#E78284",
+            "selectionBackground": "#626880",
+            "white": "#B5BFE2",
+            "yellow": "#E5C890"
+        },
+        {
+            "background": "#333333",
+            "black": "#333333",
+            "blue": "#737373",
+            "brightBlack": "#C9C9C9",
+            "brightBlue": "#87CEEB",
+            "brightCyan": "#FFD700",
+            "brightGreen": "#55FF55",
+            "brightPurple": "#FF55FF",
+            "brightRed": "#FF5555",
+            "brightWhite": "#FFFFFF",
+            "brightYellow": "#FFFF55",
+            "cursorColor": "#00FF00",
+            "cyan": "#FFA0A0",
+            "foreground": "#FFFFFF",
+            "green": "#98FB98",
+            "name": "Legacy for PS",
+            "purple": "#FFDEAD",
+            "red": "#FF2B2B",
+            "selectionBackground": "#FFFFFF",
+            "white": "#FFE9BC",
+            "yellow": "#B1B34E"
+        },
+        {
+            "background": "#333333",
+            "black": "#333333",
+            "blue": "#737373",
+            "brightBlack": "#555555",
+            "brightBlue": "#87CEEB",
+            "brightCyan": "#FFD700",
+            "brightGreen": "#55FF55",
+            "brightPurple": "#FF55FF",
+            "brightRed": "#FF5555",
+            "brightWhite": "#FFFFFF",
+            "brightYellow": "#FFFF55",
+            "cursorColor": "#00FF00",
+            "cyan": "#FFA0A0",
+            "foreground": "#FFFFFF",
+            "green": "#98FB98",
+            "name": "Putty legacy",
+            "purple": "#D9C6A0",
+            "red": "#FF2B2B",
+            "selectionBackground": "#FFFFFF",
+            "white": "#FFE9BC",
+            "yellow": "#B1B34E"
+        }
+    ],
+    "theme": "system",
+    "themes": 
+    [
+        {
+            "name": "Catppuccin Frappe",
+            "tab": 
+            {
+                "background": "#303446FF",
+                "iconStyle": "default",
+                "showCloseButton": "always",
+                "unfocusedBackground": null
+            },
+            "tabRow": 
+            {
+                "background": "#292C3CFF",
+                "unfocusedBackground": "#232634FF"
+            },
+            "window": 
+            {
+                "applicationTheme": "dark",
+                "experimental.rainbowFrame": false,
+                "frame": null,
+                "unfocusedFrame": null,
+                "useMica": false
+            }
+        }
+    ],
+    "useAcrylicInTabRow": false,
+    "wordDelimiters": " ()\"',:;<>~!@#$%^&*|/+=[]{}~?\u2502"
+}

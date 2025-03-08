@@ -1,0 +1,25 @@
+[wsl2]
+memory=8GB
+processors=8
+#localhostForwarding=true
+swap=0
+guiApplications=false
+nestedVirtualization=false
+firewall=false
+autoProxy=false
+networkingMode=NAT
+
+
+# kernel trials
+# see https://github.com/carlfriedrich/wsl-kernel-build/issues/1
+# https://github.com/microsoft/WSL/issues/8696#issuecomment-1527039089
+# https://github.com/microsoft/WSL/issues/8696#issuecomment-1372751462
+# https://github.com/microsoft/WSL/issues/6982
+# https://github.com/microsoft/WSL/issues/8696
+kernel=C:\\WSL\\kernel\\bzImage-5.15.153.2-microsoft-standard-WSL2
+
+
+[experimental]
+#autoMemoryReclaim=gradual
+autoMemoryReclaim=dropcache
+# hostAddressLoopback=true
