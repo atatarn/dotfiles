@@ -30,19 +30,8 @@ dotbot() {
 printf "\n"
 echo "Remember #1: you will be asked for the root password because some packages need to be installed."
 echo "Remember #2: install script must have HTTPS access to the world because of github packages."
-read -p "Press enter to continue"
 printf "\n"
 
 dotbot install_steps/apt.yml
+dotbot install_steps/shell.yml
 
-# CONFIG="install.conf.yaml"
-# DOTBOT_DIR="dotbot"
-#
-# DOTBOT_BIN="bin/dotbot"
-# BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-#
-# cd "${BASEDIR}"
-# git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive
-# git submodule update --init --recursive "${DOTBOT_DIR}"
-#
-# "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" "${@}"

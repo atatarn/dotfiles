@@ -1,0 +1,7 @@
+---
+- clean: ['~']
+
+- link:
+    ~/.bashrc:
+      path: bash/bashrc.sh
+      force: true
