@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# this is heavilly inspired by
+# https://github.com/mrnugget/dotfiles/blob/c4624ed521d539856bcf764f04a295bb19093566/githelpers
+# https://github.com/mrnugget/dotfiles/blob/c4624ed521d539856bcf764f04a295bb19093566/gitconfig
+
+LEAD="%C(auto)"
+HASH="%h"
+RELATIVE_AUTHOR_DATE="%<|(33)%C(always,green)%ar%C(auto)"
+AUTHOR="%<(20)%C(always, bold blue)%an%C(auto)"
+#REFS="%C(always,yellow)%d%C(auto)"
+REFS="%d"
+SUBJECT="%s"
+
+FORMAT="$LEAD$HASH $RELATIVE_AUTHOR_DATE $AUTHOR$REFS $SUBJECT"
+
+pretty_git_log() {
+    git log --graph --pretty="tformat:$FORMAT" $*
+}
+

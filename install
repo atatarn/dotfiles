@@ -32,6 +32,7 @@ echo "Remember #1: you will be asked for the root password because some packages
 echo "Remember #2: install script must have HTTPS access to the world because of github packages."
 printf "\n"
 
+dotbot install_steps/essentials.yml
 dotbot install_steps/dependencies.yml
 dotbot install_steps/shell.yml
 

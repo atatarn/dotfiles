@@ -1,0 +1,15 @@
+---
+
+- clean: ['~']
+
+- shell:
+    - command: |
+        mkdir -p ~/.ssh/config.d && \
+        find ~/.ssh -type d | xargs chmod 0700 &&
+        cat ssh/config > ~/.ssh/config
+
+- link:
+    ~/.gitconfig:
+      path: git/gitconfig
+      force: true
+
