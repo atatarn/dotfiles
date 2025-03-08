@@ -1,0 +1,14 @@
+---
+
+- shell:
+  - command: sudo apt-get update
+    description: APT update
+    stderr: true
+  - command: sudo apt-get upgrade -y --no-install-recommends
+    description: APT upgrade
+    stderr: true
+  - command: |
+      sudo apt-get install -y --no-install-recommends \
+        dive curl wget jq ripgrep zsh lua5.4 liblua5.4-dev fd-find
+    description: APT packages
+
