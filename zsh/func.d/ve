@@ -1,0 +1,65 @@
+function _ve_say() {
+    print -P "%F{$1} $2 %f"
+}
+
+function _ve_activate() {
+    source $1/bin/activate
+    _ve_say "green" "Ok $VIRTUAL_ENV"
+}
+
+function _ve_create() {
+    local default_python_bin="/usr/bin/python3"
+
+    # create new venv using default one if set
+    # if not set - use system wide python
+    if [[ -d "$VIRTUAL_ENV" ]]; then
+        local use_python="$VIRTUAL_ENV/bin/python"
+    else
+        local use_python=$default_python_bin
+    fi
+
+    _ve_say "yellow" "Creating new .venv using $use_python"
+    $use_python -m venv .venv
+}
+
+local default_venv="$HOME/pyvenv/default"
+
+local flag_default flag_new
+
+local usage=(
+    "ve [-d | -c]"
+    "ve [-h]"
+
+    "Opts:"
+    "-d to activate default python environment"
+    "-c to create new virtualenv"
+)
+    
+# some opts parsing
+zmodload zsh/zutil
+zparseopts -D -F -- h=flag_help d=flag_default c=flag_new
+
+# print help
+[[ -z "$flag_help" ]] || { print -l $usage && return }
+
+# just source default venv
+if [[ ! -z "$flag_default" ]]; then
+    _ve_say "yellow" "Activating default python venv..."
+    _ve_activate $default_venv
+    return
+fi
+    
+if [[ ! -z "$flag_new" ]]; then
+    _ve_create
+    _ve_activate $PWD/.venv
+    return 0
+fi
+
+# no venv set or no .venv here
+if [[ ! -d "$PWD/.venv" ]]; then
+    # echo "VIRTUAL_ENV is unset, do \"ve -c\" to create and activate venv"
+    _ve_say "red" "No .venv in here, \`ve -c\` to create & activate new one."
+    return 1
+fi
+
+_ve_activate $PWD/.venv

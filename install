@@ -24,7 +24,7 @@ dotbot() {
 
     "$BASEDIR/$DOTBOT_DIR/$DOTBOT_BIN" \
     -d "$BASEDIR" \
-    -c "$config" $ARGS
+    -c "$config" -x $ARGS
 }
 
 printf "\n"
@@ -32,6 +32,6 @@ echo "Remember #1: you will be asked for the root password because some packages
 echo "Remember #2: install script must have HTTPS access to the world because of github packages."
 printf "\n"
 
-dotbot install_steps/apt.yml
+dotbot install_steps/dependencies.yml
 dotbot install_steps/shell.yml
 

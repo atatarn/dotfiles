@@ -1,0 +1,27 @@
+fzf_out=$(
+    dls_cmd="
+        docker container ls -a --format 'table {{.ID}}\t{{split .Names \".\"}}\t{{.State}}' | \
+        sed -r 's/\[([^ ]+).+\]/\1/g;' | grep -v NAMES | sort -k2 -r
+    " \
+        fzf --bind 'start:reload(eval $dls_cmd)' \
+        --style full \
+        --info=inline --layout=reverse \
+        --border-label ' docker container ls -a ' \
+        --header "'?' for help" --header-first \
+        --border --padding 1,2 \
+        --input-label ' Search ' \
+        --preview-window wrap \
+        --preview 'docker container ls -a --filter id={1} --format json --no-trunc | jq -C' \
+        --color 'border:#aaaaaa,label:#cccccc' \
+        --color 'preview-border:#9999cc,preview-label:#ccccff' \
+        --color 'list-border:#669966,list-label:#99cc99' \
+        --color 'input-border:#996666,input-label:#ffcccc' \
+        --color 'header-border:#6699cc,header-label:#99ccff' \
+        --bind '?:preview:(echo "Ctrl-r -> Reload the grid\\nCtrl-l -> logs -a\\nCtrl-e -> exec -ti bash")' \
+        --bind 'ctrl-r:reload(eval $dls_cmd)' \
+        --bind 'ctrl-l:execute(docker logs -f {1})' \
+        --bind 'ctrl-e:execute(docker exec -ti {1} bash)' \
+)
+if [ ! -z "$fzf_out" ]; then
+    print -nz $(echo $fzf_out | awk '{print "docker exec " $1}')
+fi

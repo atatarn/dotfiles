@@ -1,0 +1,30 @@
+echo "Setting Windows Host as a proxy server";
+echo "Assuming Windows Host has proxy service on port 3189";
+
+# below is usefull if in your .wslconfig networkingMode = NAT or not set (defaults to NAT)
+_WSL_WINDOWS_IP=$(ip route | awk 'NR==1{print $3}');
+
+# for networkingMode = mirrored use this:
+#_WSL_WINDOWS_IP="127.0.0.1";
+
+if [ -z $_WSL_WINDOWS_IP ]; then
+    echo "Can't find Windows Host IP, your env probably broken"
+else
+    export _WSL_WINDOWS_IP
+    echo "Found WinHost, _WSL_WINDOWS_IP=${_WSL_WINDOWS_IP}"
+
+    export _PROXY_HP=${_WSL_WINDOWS_IP}:3189
+    export http_proxy=http://${_PROXY_HP}
+    export https_proxy=${http_proxy}
+    export HTTP_PROXY=${http_proxy}
+    export HTTPS_PROXY=${http_proxy}
+
+    # for envs where external proxy exists
+    alias sshp="ssh -o ProxyCommand=\"nc -X connect -x ${_PROXY_HP} %h %p\""
+    alias scpp="scp -o ProxyCommand=\"nc -X connect -x ${_PROXY_HP} %h %p\""
+
+
+    echo "Here you go:"
+    env | grep -i proxy
+fi
+

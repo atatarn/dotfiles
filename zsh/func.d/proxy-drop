@@ -1,0 +1,4 @@
+unset $(env | grep -i proxy | awk -F'=' '{print $1}')
+echo "Done, no proxy env from now on"
+env | grep -i proxy || true;
+

@@ -5,8 +5,23 @@
     - command: cat bash/root.bashrc | sudo tee /root/.bashrc
       description: Root's bashrc
       stderr: true
+    - command: curl -s https://ohmyposh.dev/install.sh | sudo bash -s -- -d /usr/local/bin
+      description: Oh My Posh
+      stderr: true
+    - command: |
+        export ZINIT_HOME=$HOME/.local/share/zinit/zinit.git && \
+        rm -rf $ZINIT_HOME || true && \
+        mkdir -p $HOME/.local/share/zinit/zinit.git && \
+        git clone --branch main https://github.com/zdharma-continuum/zinit.git \
+        $HOME/.local/share/zinit/zinit.git
+      description: Get ZInit
+      stderr: true
 
 - link:
     ~/.bashrc:
       path: bash/bashrc.sh
       force: true
+    ~/.zshrc:
+      path: zsh/zshrc
+      force: true
+

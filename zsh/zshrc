@@ -1,0 +1,122 @@
+if [ -n "${ZSH_DEBUGRC+1}" ]; then
+    zmodload zsh/zprof
+fi
+
+
+export PATH=$PATH:$HOME/.local/bin
+DOTFILES=$HOME/dotfiles
+DOTZSH=$DOTFILES/zsh;
+
+#zstyle ':completion:*' completer _expand _complete _ignored _approximate
+#zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}'
+#zstyle ':completion:*' max-errors 5 numeric
+
+# env vars includes
+for f in ${HOME}/.config/env.d/*(N); do source $f; done
+
+# default sources
+for f in ${DOTZSH}/rc.d/*(N); do source $f; done
+
+
+eval "$(oh-my-posh init zsh --config $DOTFILES/ohmyposh/base.yml)"
+
+
+# zinit
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+source "${ZINIT_HOME}/zinit.zsh"
+# plugins
+zinit light zsh-users/zsh-completions
+
+#autoload -Uz compinit && compinit
+autoload -Uz compinit
+for dump in ~/.zcompdump(N.mh+24); do
+  compinit
+done
+compinit -C
+
+unset '_comps[source]'
+
+zinit light Aloxaf/fzf-tab
+zinit light zsh-users/zsh-syntax-highlighting
+zinit light zsh-users/zsh-syntax-highlighting
+zinit light sunlei/zsh-ssh
+
+# ssh-agent form oh-my-zsh
+zstyle :omz:plugins:ssh-agent lazy yes
+zinit snippet OMZP::ssh-agent
+
+zinit cdreplay -q
+
+bindkey -e
+
+bindkey '^p' history-search-backward
+bindkey '^n' history-search-forward
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
+
+
+HISTFILE=~/.histfile
+HISTSIZE=99999
+SAVEHIST=99999
+HISTDUP=erase
+setopt EXTENDED_HISTORY
+setopt appendhistory
+setopt sharehistory
+setopt INC_APPEND_HISTORY
+setopt hist_ignore_space
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+setopt hist_ignore_dups
+setopt hist_find_no_dups
+setopt beep nomatch
+#unsetopt autocd extendedglob notify
+
+
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' menu no
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+zstyle ':completion:*:descriptions' format '[%d]'
+# any reason to override wordchars here?
+WORDCHARS='*?_-[]/~=&;!#$%^(){}<> '$'\n'
+autoload -Uz select-word-style
+select-word-style normal
+zstyle ':zle:*' word-style unspecified
+
+typeset -g ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=blue'
+
+# fzf
+# apt install fzf -- first
+source <(fzf --zsh)
+
+# autoload func.d
+# thx to https://stackoverflow.com/questions/30840651/what-does-autoload-do-in-zsh
+() {
+    # add our local functions dir to the fpath
+    local funcs=$DOTZSH/func.d
+
+    # FPATH is already tied to fpath, but this adds
+    # a uniqueness constraint to prevent duplicate entries
+    typeset -TUg +x FPATH=$funcs:$FPATH fpath
+    
+    # Now autoload them
+    autoload ${fpath[1]}/*(:t)
+}
+
+# some aliases
+alias vd="ve -d"
+alias vc="ve -c"
+alias vt="vault-init"
+
+if [ -n "${ZSH_DEBUGRC+1}" ]; then
+    zprof
+fi
+
+# misc autocompletes (yc, vault, etc)
+for f in ${HOME}/.config/compinit.d/*(N); do source $f; done
+
+# uv completions
+if which uv > /dev/null 2>&1; then
+    eval "$(uv generate-shell-completion zsh)"
+fi
+

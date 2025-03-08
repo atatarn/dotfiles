@@ -1,0 +1,13 @@
+
+echo "Open your Vault, grab the token (usually by clicking on the Profile icon -> Copy token)";
+echo -n "Paste token here: "
+builtin read -rs VTOKEN
+
+if [ -z ${VTOKEN:-} ]; then
+	echo "Empty token";
+else
+	export VAULT_TOKEN=$VTOKEN;
+	echo "";
+	echo "Vault Token ready";
+fi
+
