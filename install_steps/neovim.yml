@@ -3,6 +3,11 @@
 - shell:
     - command: |
         set -eo pipefail;
+        SRC=https://github.com/google/yamlfmt/releases/download/v0.16.0/yamlfmt_0.16.0_Linux_x86_64.tar.gz;
+        curl -sL $SRC | sudo tar xz -C /usr/local/bin --wildcards "yamlfmt"
+      description: yamlfmt
+    - command: |
+        set -eo pipefail;
         NEOVIM_RELEASE=0.10.4;
         rm -rf /tmp/neovim;
         mkdir /tmp/neovim;
@@ -20,3 +25,8 @@
       path: nvim
       create: true
       force: true
+    ~/.config/yamlfmt/.yamlfmt:
+      path: config/yamlfmt/yamlfmt
+      create: true
+      force: true
+
