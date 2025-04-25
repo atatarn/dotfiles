@@ -2,68 +2,69 @@
 
 palette:
   blue: "#4B95E9"
+  green: "#6cc150"
 console_title_template: "{{ .UserName }}{{ if .Segments.Session.SSHSession }}@{{ .HostName }}{{ end }} {{ .PWD }}"
 blocks:
-- type: prompt
-  alignment: left
-  segments:
-  - template: "{{ if .Root }}{{ .HostName }}{{ else }}{{ .UserName }}{{ end }}{{ if .SSHSession }} \ueba9{{ end }} "
-    foreground_templates:
-     - "{{ if .Root }}lightRed{{ end }}"
-     - "{{ if not .Root }}lightGreen{{ end }}"
-    type: session
-    style: plain
-  - properties:
-      style: full
-    alias: Path
-    template: "{{ path .Path .Location }} "
-    foreground: lightBlue
-    type: path
-    style: plain
-  - properties:
-      display_default: true
-      display_mode: context
-      fetch_version: false
-      fetch_virtual_env: true
-      folder_name_fallback: true
-      home_enabled: true
-    template: "\ue235{{ if .Venv }}{{ .Venv }}{{ else }}Global{{ end }} "
-    foreground: white
-    type: python
-    style: plain
-  - properties:
-      branch_icon: ""
-      branch_max_length: 50
-      commit_icon: "@"
-      fetch_status: true
-      fetch_upstream_icon: false
-    template: "{{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} <cyan>{{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</>"
-    foreground: lightYellow
-    type: git
-    style: plain
-  newline: true
-- type: prompt
-  alignment: right
-  segments:
-  - properties:
-      threshold: 5000
-    foreground: lightCyan
-    type: executiontime
-    style: plain
-  - foreground: p:blue
-    type: time
-    style: plain
-- type: prompt
-  alignment: left
-  segments:
-  - properties:
-      always_enabled: true
-    template: $
-    type: status
-    style: plain
-    foreground_templates:
-    - "{{ if gt .Code 0 }}lightRed{{ end }}"
-    - "{{if eq .Code 0}}lightBlue{{end}}"
-  newline: true
+  - type: prompt
+    alignment: left
+    segments:
+      - template: "{{ if .Root }}{{ .HostName }}{{ else }}{{ .UserName }}{{ end }}{{ if .SSHSession }} \ueba9{{ end }} "
+        foreground_templates:
+          - "{{ if .Root }}lightRed{{ end }}"
+          - "{{ if not .Root }}green{{ end }}"
+        type: session
+        style: plain
+      - properties:
+          style: full
+        alias: Path
+        template: "{{ path .Path .Location }} "
+        foreground: lightBlue
+        type: path
+        style: plain
+      - properties:
+          display_default: true
+          display_mode: context
+          fetch_version: false
+          fetch_virtual_env: true
+          folder_name_fallback: true
+          home_enabled: true
+        template: "\ue235{{ if .Venv }}{{ .Venv }}{{ else }}Global{{ end }} "
+        foreground: white
+        type: python
+        style: plain
+      - properties:
+          branch_icon: ""
+          branch_max_length: 50
+          commit_icon: "@"
+          fetch_status: true
+          fetch_upstream_icon: false
+        template: "{{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} <cyan>{{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</>"
+        foreground: lightYellow
+        type: git
+        style: plain
+    newline: true
+  - type: prompt
+    alignment: right
+    segments:
+      - properties:
+          threshold: 5000
+        foreground: lightCyan
+        type: executiontime
+        style: plain
+      - foreground: p:blue
+        type: time
+        style: plain
+  - type: prompt
+    alignment: left
+    segments:
+      - properties:
+          always_enabled: true
+        template: $
+        type: status
+        style: plain
+        foreground_templates:
+          - "{{ if gt .Code 0 }}lightRed{{ end }}"
+          - "{{if eq .Code 0}}lightBlue{{end}}"
+    newline: true
 version: 3
 final_space: true
