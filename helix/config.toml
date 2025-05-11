@@ -3,7 +3,6 @@ theme = "catppuccin_mocha"
 [editor]
 true-color = true
 line-number = "relative"
-# cursorline = true
 bufferline = "always"
 color-modes = true
 default-line-ending = "lf"
@@ -11,7 +10,8 @@ undercurl = true
 end-of-line-diagnostics = "hint"
 
 [editor.inline-diagnostics]
-cursor-line = "warning"
+cursor-line = "info"
+other-lines = "info"
 
 
 [editor.statusline]

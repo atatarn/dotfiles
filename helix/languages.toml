@@ -1,0 +1,14 @@
+[[language]]
+name = "python"
+language-servers = [ "pyright", "ruff" ]
+diagnostic-severity = "info"
+
+[language-server.pyright.config]
+mypy = {enabled = true, live_mode = true}
+
+[language-server.pyright.config.python.analysis]
+typeCheckingMode = "off"
+
+[language-server.ruff]
+command = "ruff"
+args = ["server"]
