@@ -1,0 +1,34 @@
+theme = "catppuccin_mocha"
+
+[editor]
+true-color = true
+line-number = "relative"
+# cursorline = true
+bufferline = "always"
+color-modes = true
+default-line-ending = "lf"
+undercurl = true
+end-of-line-diagnostics = "hint"
+
+[editor.inline-diagnostics]
+cursor-line = "warning"
+
+
+[editor.statusline]
+left = ["mode", "spinner", "file-modification-indicator"]
+center = ["file-name", "diagnostics", "workspace-diagnostics"]
+right = ["selections", "position", "file-encoding", "file-line-ending", "file-type"]
+separator = "│"
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.file-picker]
+hidden = false
+
+
