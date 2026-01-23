@@ -14,14 +14,14 @@ blocks:
           - "{{ if not .Root }}green{{ end }}"
         type: session
         style: plain
-      - properties:
+      - options:
           style: full
         alias: Path
         template: "{{ path .Path .Location }} "
         foreground: lightBlue
         type: path
         style: plain
-      - properties:
+      - options:
           display_default: true
           display_mode: context
           fetch_version: false
@@ -32,7 +32,7 @@ blocks:
         foreground: white
         type: python
         style: plain
-      - properties:
+      - options:
           branch_icon: ""
           branch_max_length: 50
           commit_icon: "@"
@@ -46,7 +46,7 @@ blocks:
   - type: prompt
     alignment: right
     segments:
-      - properties:
+      - options:
           threshold: 5000
         foreground: lightCyan
         type: executiontime
@@ -57,7 +57,7 @@ blocks:
   - type: prompt
     alignment: left
     segments:
-      - properties:
+      - options:
           always_enabled: true
         template: $
         type: status
