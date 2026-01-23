@@ -37,3 +37,6 @@ alias gpf='git push --force'
 #alias hs='git rev-parse --short HEAD'
 #alias hm='git log --format=%B -n 1 HEAD'
 
+alias vd="ve -d"
+alias vc="ve -c"
+alias vt="vault-init"

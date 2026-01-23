@@ -103,10 +103,6 @@ source <(fzf --zsh)
     autoload ${fpath[1]}/*(:t)
 }
 
-# some aliases
-alias vd="ve -d"
-alias vc="ve -c"
-alias vt="vault-init"
 
 if [ -n "${ZSH_DEBUGRC+1}" ]; then
     zprof

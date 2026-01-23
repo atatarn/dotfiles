@@ -7,19 +7,14 @@ function _ve_activate() {
     _ve_say "green" "Ok $VIRTUAL_ENV"
 }
 
-function _ve_create() {
-    local default_python_bin="/usr/bin/python3"
-
-    # create new venv using default one if set
-    # if not set - use system wide python
+function _ve_deactivate() {
     if [[ -d "$VIRTUAL_ENV" ]]; then
-        local use_python="$VIRTUAL_ENV/bin/python"
-    else
-        local use_python=$default_python_bin
+        deactivate
     fi
+}
 
-    _ve_say "yellow" "Creating new .venv using $use_python"
-    $use_python -m venv .venv
+function _ve_create() {
+    uv venv
 }
 
 local default_venv="$HOME/pyvenv/default"
@@ -42,11 +37,9 @@ zparseopts -D -F -- h=flag_help d=flag_default c=flag_new
 # print help
 [[ -z "$flag_help" ]] || { print -l $usage && return }
 
-# just source default venv
 if [[ ! -z "$flag_default" ]]; then
-    _ve_say "yellow" "Activating default python venv..."
-    _ve_activate $default_venv
-    return
+    _ve_deactivate
+    return 0
 fi
     
 if [[ ! -z "$flag_new" ]]; then

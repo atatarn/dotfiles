@@ -28,7 +28,7 @@ blocks:
           fetch_virtual_env: true
           folder_name_fallback: true
           home_enabled: true
-        template: "\ue235{{ if .Venv }}{{ .Venv }}{{ else }}Global{{ end }} "
+        template: "{{ if .Venv }}\ue235{{ .Venv }}{{ end }} "
         foreground: white
         type: python
         style: plain
