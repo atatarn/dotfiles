@@ -42,6 +42,11 @@ blocks:
         foreground: lightYellow
         type: git
         style: plain
+      - type: status
+        style: plain
+        template: "{{ if ne .Code 0 }}[{{ .Code }} {{ reason .Code }}]{{ end }}"
+        foreground_templates:
+          - "{{ if gt .Code 0 }}lightRed{{ end }}"
     newline: true
   - type: prompt
     alignment: right
