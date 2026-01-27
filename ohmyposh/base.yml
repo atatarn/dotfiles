@@ -24,11 +24,11 @@ blocks:
       - options:
           display_default: true
           display_mode: context
-          fetch_version: false
+          fetch_version: true
           fetch_virtual_env: true
           folder_name_fallback: true
           home_enabled: true
-        template: "{{ if .Venv }}\ue235{{ .Venv }}{{ end }} "
+        template: "{{ if .Venv }}\ue235 {{ .Venv }} ({{ .Full }}){{ end }} "
         foreground: white
         type: python
         style: plain
