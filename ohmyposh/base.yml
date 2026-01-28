@@ -44,7 +44,7 @@ blocks:
         style: plain
       - type: status
         style: plain
-        template: "{{ if ne .Code 0 }}[{{ .Code }} {{ reason .Code }}]{{ end }}"
+        template: ' [{{ .Code }}{{ if and (ne (reason .Code) "") (ne (reason .Code) (printf "%d" .Code)) }} {{ reason .Code }}{{ end }}]'
         foreground_templates:
           - "{{ if gt .Code 0 }}lightRed{{ end }}"
     newline: true
