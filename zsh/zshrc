@@ -38,7 +38,6 @@ unset '_comps[source]'
 
 zinit light Aloxaf/fzf-tab
 zinit light zsh-users/zsh-syntax-highlighting
-zinit light zsh-users/zsh-syntax-highlighting
 zinit light sunlei/zsh-ssh
 
 # ssh-agent form oh-my-zsh
