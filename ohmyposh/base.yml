@@ -1,4 +1,5 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
+# icons: https://www.nerdfonts.com/cheat-sheet
 
 palette:
   blue: "#4B95E9"
@@ -8,7 +9,7 @@ blocks:
   - type: prompt
     alignment: left
     segments:
-      - template: "{{ if .Root }}{{ .HostName }}{{ else }}{{ .UserName }}{{ end }}{{ if .SSHSession }} \ueba9{{ end }} "
+      - template: "{{ if .Root }}{{ .HostName }}{{ end }}{{ if .SSHSession }}{{ .UserName }} \ueba9{{ end }} "
         foreground_templates:
           - "{{ if .Root }}lightRed{{ end }}"
           - "{{ if not .Root }}green{{ end }}"
@@ -17,7 +18,7 @@ blocks:
       - options:
           style: full
         alias: Path
-        template: "{{ path .Path .Location }} "
+        template: "\uf413 {{ path .Path .Location }} "
         foreground: lightBlue
         type: path
         style: plain
@@ -38,7 +39,7 @@ blocks:
           commit_icon: "@"
           fetch_status: true
           fetch_upstream_icon: false
-        template: "{{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} <cyan>{{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</>"
+        template: "\ue65d {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} <cyan>{{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</>"
         foreground: lightYellow
         type: git
         style: plain
