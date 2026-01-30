@@ -44,6 +44,7 @@ blocks:
         type: git
         style: plain
       - type: status
+        alias: StatusCode
         style: plain
         template: ' [{{ .Code }}{{ if and (ne (reason .Code) "") (ne (reason .Code) (printf "%d" .Code)) }} {{ reason .Code }}{{ end }}]'
         foreground_templates:
@@ -67,10 +68,16 @@ blocks:
           always_enabled: true
         template: $
         type: status
+        alias: StatusPrompt
         style: plain
         foreground_templates:
           - "{{ if gt .Code 0 }}lightRed{{ end }}"
           - "{{if eq .Code 0}}lightBlue{{end}}"
     newline: true
+transient_prompt:
+  background: transparent
+  foreground: lightBlue
+  newline: true
+  template: "{{ now | date .Segments.Time.Format }} {{ .Segments.Path.Text }}{{ .Segments.StatusPrompt.Text }} "
 version: 3
 final_space: true
