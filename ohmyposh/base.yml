@@ -9,12 +9,18 @@ blocks:
   - type: prompt
     alignment: left
     segments:
-      - template: "{{ if .Root }}{{ .HostName }}{{ end }}{{ if .SSHSession }}{{ .UserName }} \ueba9{{ end }} "
+      - template: " "
+        templates:
+          - "{{ if .Root }}{{ .HostName }}{{ end }}"
+          - "{{ if .SSHSession }}{{ .UserName }}@{{ .HostName }} \ueba9{{ end }}"
+          - "{{ if .Env.OMP_SHOW_HOST }}{{ .HostName }} {{ end }}"
+        templates_logic: join
         foreground_templates:
           - "{{ if .Root }}lightRed{{ end }}"
           - "{{ if not .Root }}green{{ end }}"
         type: session
         style: plain
+        alias: Session
       - options:
           style: full
         alias: Path
@@ -78,6 +84,6 @@ transient_prompt:
   background: transparent
   foreground: lightBlue
   newline: true
-  template: "{{ now | date .Segments.Time.Format }} {{ .Segments.Path.Text }}{{ .Segments.StatusPrompt.Text }} "
+  template: "{{ now | date .Segments.Time.Format }} {{ if .Env.OMP_SHOW_HOST }}{{ .HostName }} {{ end }}{{ .Segments.Path.Text }}{{ .Segments.StatusPrompt.Text }} "
 version: 3
 final_space: true
