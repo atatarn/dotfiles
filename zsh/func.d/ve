@@ -14,7 +14,7 @@ function _ve_deactivate() {
 }
 
 function _ve_create() {
-    uv venv
+    uv venv "$@"
 }
 
 local default_venv="$HOME/pyvenv/default"
@@ -32,7 +32,7 @@ local usage=(
     
 # some opts parsing
 zmodload zsh/zutil
-zparseopts -D -F -- h=flag_help d=flag_default c=flag_new
+zparseopts -D -- h=flag_help d=flag_default c=flag_new
 
 # print help
 [[ -z "$flag_help" ]] || { print -l $usage && return }
@@ -43,7 +43,7 @@ if [[ ! -z "$flag_default" ]]; then
 fi
     
 if [[ ! -z "$flag_new" ]]; then
-    _ve_create
+    _ve_create "$@"
     _ve_activate $PWD/.venv
     return 0
 fi
