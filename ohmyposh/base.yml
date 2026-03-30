@@ -12,7 +12,7 @@ blocks:
       - template: " "
         templates:
           - "{{ if .Root }}{{ .HostName }}{{ end }}"
-          - "{{ if .SSHSession }}{{ .UserName }}@{{ .HostName }} \ueba9{{ end }}"
+          - "{{ if .SSHSession }}{{ .UserName }}@{{ .HostName }} \ueba9 {{ end }}"
           - "{{ if .Env.OMP_SHOW_HOST }}{{ .HostName }} {{ end }}"
         templates_logic: join
         foreground_templates:
