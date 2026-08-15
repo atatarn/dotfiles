@@ -41,7 +41,7 @@ blocks:
         style: plain
       - options:
           branch_icon: ""
-          branch_max_length: 50
+          branch_template: "{{ trunc 50 .Branch }}"
           commit_icon: "@"
           fetch_status: true
           fetch_upstream_icon: false
@@ -85,5 +85,6 @@ transient_prompt:
   foreground: lightBlue
   newline: true
   template: "{{ now | date .Segments.Time.Format }} {{ if .Env.OMP_SHOW_HOST }}{{ .HostName }} {{ end }}{{ .Segments.Path.Text }}{{ .Segments.StatusPrompt.Text }} "
+  right_template: "{{ if .Segments.Executiontime.FormattedMs }} {{ .Segments.Executiontime.FormattedMs }}{{ end }}"
 version: 3
 final_space: true
