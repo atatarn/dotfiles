@@ -38,6 +38,9 @@ for f in $HOME/.config/compinit.d/*(N); do source $f; done
 
 for f in $DOTZSH/rc.d/*(N); do source $f; done
 
+export FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS:+$FZF_DEFAULT_OPTS }--color=fg:7"
+zstyle ':fzf-tab:*' use-fzf-default-opts yes
+
 source <(fzf --zsh)               # Ctrl-R / Ctrl-T / Alt-C
 bindkey '^I' expand-or-complete
 zinit light Aloxaf/fzf-tab        # Tab -> fzf-tab
