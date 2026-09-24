@@ -49,9 +49,8 @@ zinit light sunlei/zsh-ssh        # `ssh <Tab>` -> zsh-ssh, всё осталь�
 zstyle :omz:plugins:ssh-agent lazy yes
 zinit snippet OMZP::ssh-agent
 
-# подсказки серым из истории
-# ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=blue'
-# zinit light zsh-users/zsh-autosuggestions
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=blue'
+zinit light zsh-users/zsh-autosuggestions
 
 zinit light zsh-users/zsh-syntax-highlighting
 
