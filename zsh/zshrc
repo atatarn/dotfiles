@@ -36,6 +36,10 @@ compinit -C
 
 unset '_comps[source]'
 
+# fzf
+# apt install fzf -- first
+source <(fzf --zsh)
+
 zinit light Aloxaf/fzf-tab
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light sunlei/zsh-ssh
@@ -84,9 +88,6 @@ zstyle ':zle:*' word-style unspecified
 
 typeset -g ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=blue'
 
-# fzf
-# apt install fzf -- first
-source <(fzf --zsh)
 
 # autoload func.d
 # thx to https://stackoverflow.com/questions/30840651/what-does-autoload-do-in-zsh
