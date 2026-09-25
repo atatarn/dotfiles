@@ -16,7 +16,7 @@
       stderr: true
     - command: |
         set -eo pipefail;
-        FZF_SRC=https://github.com/junegunn/fzf/releases/download/v0.60.3/fzf-0.60.3-linux_amd64.tar.gz;
+        FZF_SRC=https://github.com/junegunn/fzf/releases/download/v0.74.4/fzf-0.74.4-linux_amd64.tar.gz;
         curl -sL $FZF_SRC | sudo tar xz -C /usr/local/bin --wildcards "fzf"
       description: fzf
 
