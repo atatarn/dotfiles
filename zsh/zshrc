@@ -6,6 +6,16 @@ path=($HOME/.local/bin $path)         # свои бинари важнее си�
 DOTFILES=$HOME/dotfiles
 DOTZSH=$DOTFILES/zsh
 
+export HISTFILE=~/.histfile
+export HISTSIZE=999999
+export SAVEHIST=999999
+setopt extended_history
+setopt share_history
+setopt hist_ignore_space
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+setopt hist_find_no_dups
+
 bindkey -e
 
 for f in $HOME/.config/env.d/*(N); do source $f; done
@@ -49,8 +59,11 @@ zinit light sunlei/zsh-ssh        # `ssh <Tab>` -> zsh-ssh, всё осталь�
 zstyle :omz:plugins:ssh-agent lazy yes
 zinit snippet OMZP::ssh-agent
 
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=blue'
-zinit light zsh-users/zsh-autosuggestions
+# ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=blue'
+# zinit light zsh-users/zsh-autosuggestions
+export DEJA_CYCLE_KEY=
+zinit ice wait"0" lucid depth=1 pick"deja.plugin.zsh"
+zinit light Giammarco-Ferranti/deja
 
 zinit light zsh-users/zsh-syntax-highlighting
 
@@ -67,14 +80,6 @@ select-word-style normal
 zstyle ':zle:*' word-style unspecified
 zstyle ':zle:*' word-chars $' \t\n-.*?_[]/~=&;!#$%^(){}<>'
 
-HISTFILE=~/.histfile
-HISTSIZE=99999
-SAVEHIST=99999
-setopt extended_history
-setopt share_history
-setopt hist_ignore_space
-setopt hist_ignore_all_dups
-setopt hist_save_no_dups
-setopt hist_find_no_dups
+
 
 [[ -n ${ZSH_DEBUGRC+1} ]] && zprof
