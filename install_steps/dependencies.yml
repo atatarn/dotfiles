@@ -10,7 +10,7 @@
     - command: |
         sudo apt-get install -y --no-install-recommends \
           ninja-build gettext cmake curl build-essential \
-          curl wget jq ripgrep zsh lua5.4 liblua5.4-dev fd-find \
+          curl wget jq ripgrep zsh fd-find \
           unzip zip tar
       description: APT packages
       stderr: true

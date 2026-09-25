@@ -1,0 +1,4 @@
+{
+    "MouseLeftRelease": "MouseRelease,Copy",
+    "Ctrl-k": "DeleteLine"
+}

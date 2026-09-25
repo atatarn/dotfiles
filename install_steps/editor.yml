@@ -1,0 +1,21 @@
+---
+
+- shell:
+    - command: |
+        sudo apt-get install -y --no-install-recommends micro
+      description: Install micro
+      stderr: true
+
+- link:
+    ~/.config/micro/colorschemes:
+      path: micro/colorschemes
+      create: true
+      force: true
+    ~/.config/micro/settings.json:
+      path: micro/settings.json
+      create: true
+      force: true
+    ~/.config/micro/bindings.json:
+      path: micro/bindings.json
+      create: true
+      force: true
