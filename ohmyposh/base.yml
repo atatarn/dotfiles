@@ -43,8 +43,6 @@ blocks:
           branch_icon: ""
           branch_template: "{{ trunc 50 .Branch }}"
           commit_icon: "@"
-          fetch_status: true
-          fetch_upstream_icon: false
         template: "\ue65d {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} <cyan>{{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</>"
         foreground: lightYellow
         type: git
@@ -84,7 +82,7 @@ transient_prompt:
   background: transparent
   foreground: lightBlue
   newline: true
-  template: "{{ now | date .Segments.Time.Format }} {{ if .Env.OMP_SHOW_HOST }}{{ .HostName }} {{ end }}{{ .Segments.Path.Text }}{{ .Segments.StatusPrompt.Text }} "
+  template: "{{ now | date \"15:04:05\" }} {{ if .Env.OMP_SHOW_HOST }}{{ .HostName }} {{ end }}{{ .Segments.Path.Path }} {{ .Segments.StatusPrompt.Text }} "
   right_template: "{{ if .Segments.Executiontime.FormattedMs }} {{ .Segments.Executiontime.FormattedMs }}{{ end }}"
-version: 3
+version: 4
 final_space: true
