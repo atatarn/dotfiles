@@ -1,4 +1,5 @@
 {
     "MouseLeftRelease": "MouseRelease,Copy",
-    "Ctrl-k": "DeleteLine"
+    "Ctrl-k": "DeleteLine",
+    "Ctrl-W": "DeleteWordLeft"
 }
